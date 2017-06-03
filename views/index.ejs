@@ -8,13 +8,14 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="/Semantic-UI-CSS-master/semantic.min.js"></script>
     <script type ="text/javascript" src="/javascript/main.js"></script>
+    <script src="/ckeditor/ckeditor.js"></script>
   </head>
   <body>
     <div class="ui grid">
       <div class="two wide column"></div>
       <div class="twelve wide centered column">
         <div class="header-section">
-          <h1 id="title">Fluid Notes</h1>
+          <h1 id="title">Basik Notes</h1>
         </div>
       </div>
       <div class="two wide column"></div>
@@ -23,25 +24,12 @@
       <div class="two wide column"></div>
       <div class="two wide left aligned column">
         <div class="ui icon buttons">
-          <button class="ui button"><i class="align left icon"></i></button>
-          <button class="ui button"><i class="align center icon"></i></button>
-          <button class="ui button"><i class="align right icon"></i></button>
-          <button class="ui button"><i class="align justify icon"></i></button>
+          <button class="ui button"><i class="save icon">  Save</i></button>
         </div>
       </div>
       <div class="two wide left aligned column">
-        <div class="ui icon buttons">
-          <button class="ui button"><i class="bold icon"></i></button>
-          <button class="ui button"><i class="underline icon"></i></button>
-          <button class="ui button"><i class="italic icon"></i></button>
-        </div>
       </div>
       <div class="four wide column">
-        <div class="ui icon buttons">
-          <button class="ui button"><i class="save icon"></i></button>
-          <button class="ui button"><i class="underline icon"></i></button>
-          <button class="ui button"><i class="italic icon"></i></button>
-        </div>
       </div>
       <div class="four wide column">
         <div class="ui right floated menu">
@@ -81,7 +69,12 @@
       <div class="two wide column"></div>
       <div class="twelve wide column">
         <div class="standard" id="paper">
-          <div id="notes" contenteditable="true" data-color_dark="rgb(255, 255, 230)" data-color_standard="rgb(0, 0, 24)"></div>
+          <textarea id="notes" contenteditable="true" data-color_dark="rgb(255, 255, 230)" data-color_standard="rgb(0, 0, 24)"></textarea>
+          <script>
+              CKEDITOR.plugins.addExternal( 'autogrow', '/ckeditor/plugins/autogrow', 'plugin.js' );
+
+              CKEDITOR.replace('notes', {extraPlugins: 'autogrow'});
+          </script>
         </div>
       </div>
       <div class="two wide column"></div>
